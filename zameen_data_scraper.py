@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 data_list = []
 
 try:
+    # To run For multiple page 
     for i in range(1, 5):  
         url = "https://www.zameen.com/Residential_Plots/Islamabad-3-{}.html".format(i)
         response = requests.get(url)
