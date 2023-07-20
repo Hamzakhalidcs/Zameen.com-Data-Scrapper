@@ -66,31 +66,31 @@ except Exception as e:
     print('Check the Given URL')
 
 
-# try:
-#     # Step 1: Establish a connection to the MongoDB server running on localhost
-#     client = MongoClient('localhost', 27017)
+try:
+    # Step 1: Establish a connection to the MongoDB server running on localhost
+    client = MongoClient('localhost', 27017)
 
-#     # Step 2: Choose a database and collection to store the data
-#     db = client['zameen']  
-#     collection = db['plots_data'] 
+    # Step 2: Choose a database and collection to store the data
+    db = client['zameen']  
+    collection = db['plots_data'] 
 
-#     resp = collection.insert_many(data_list)
-#     print (resp.inserted_ids[:5])
-#         # print("RESULT: ",resp)
+    resp = collection.insert_many(data_list)
+    print (resp.inserted_ids[:5])
+        # print("RESULT: ",resp)
 
-#     # Close the connection to the MongoDB server
-#     client.close()
+    # Close the connection to the MongoDB server
+    client.close()
 
-#     print("Data inserted into MongoDB successfully!")
+    print("Data inserted into MongoDB successfully!")
 
-# except Exception as e:
-#     print(str(e))
-#     print('Error inserting data into MongoDB.')
+except Exception as e:
+    print(str(e))
+    print('Error inserting data into MongoDB.')
 
 
-# file = open('data.csv', 'w')
-# writer = csv.writer(file)
-# headers = ['Property Title', 'Price', 'Location',"City"]
-# writer.writerow(headers)
-# writer.writerows(data_list)
-# print('File  process complete')
+file = open('data.csv', 'w')
+writer = csv.writer(file)
+headers = ['Property Title', 'Price', 'Location',"City"]
+writer.writerow(headers)
+writer.writerows(data_list)
+print('File  process complete')
