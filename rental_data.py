@@ -66,7 +66,6 @@ except Exception as e:
 
 
 try:
-    # Add comment here 
     # Step 1: Establish a connection to the MongoDB server running on localhost
     client = MongoClient('localhost', 27017)
 
