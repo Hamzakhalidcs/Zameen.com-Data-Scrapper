@@ -48,6 +48,7 @@ try:
                                 "price" : price,
                                 "location" : location,
                                 "city" : NUM_TO_CITY_MAPPING.get(num),
+                                # "property_link" : property_link,
                                 "area" : area_span
                             }
                             )
