@@ -66,7 +66,7 @@ except Exception as e:
 
 
 try:
-    # Step 1: Establish a connection to the MongoDB server running on localhost
+    # Step 1: Establish a connection to the MongoDB server running on localhost using port 27017
     client = MongoClient('localhost', 27017)
 
     # Step 2: Choose a database and collection to store the data
