@@ -91,7 +91,7 @@ except Exception as e:
 
 file = open('data.csv', 'w')
 writer = csv.writer(file)
-headers = ['Property Title', 'Price', 'Location',"City"]
+headers = ['Property Title', 'Price', 'Location', 'City']
 writer.writerow(headers)
 writer.writerows(data_list)
 print('File  process complete')
