@@ -104,7 +104,7 @@ writer.writerow(headers)
 writer.writerows(data_list)
 target_file.close()
 
-print('File process complete')
+print('File process complete.')
 
 
 # try:
