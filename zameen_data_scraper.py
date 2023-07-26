@@ -1,8 +1,27 @@
 import requests
-import time
+import time, os 
 # import unicodecsv as csv
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
+# from dotenv import load_dotenv
+
+# Function to read the .env file and set the environment variables
+def load_env():
+    env_file = os.path.join(os.path.dirname(__file__), '.env')
+    if os.path.exists(env_file):
+        with open(env_file) as f:
+            for line in f:
+                key, value = line.strip().split('=', 1)
+                os.environ[key] = value
+
+# Load environmental variable from .env file 
+load_env()
+
+# Fetch the environment variables
+mongo_host = os.environ.get('MONGO_HOST')
+mongo_port = int(os.environ.get('MONGO_PORT'))
+mongo_db_name = os.environ.get('MONGO_DB_NAME')
+mongo_collection_name = os.environ.get('MONGO_COLLECTION_NAME')
 
 data_list = []
 
@@ -69,15 +88,16 @@ except Exception as e:
 
 try:
     # Step 1: Establish a connection to the MongoDB server running on localhost
-    client = MongoClient('localhost', 27017)
+    client = MongoClient(mongo_host, mongo_port)
 
     # Step 2: Choose a database and collection to store the data
-    db = client['zameen']  
-    collection = db['plots_data'] 
+    db = client[mongo_db_name]  
+    collection = db[mongo_collection_name]
 
+
+    # Step 3: Insert data into MongoDB collection
     resp = collection.insert_many(data_list)
-    print (resp.inserted_ids[:5])
-        # print("RESULT: ",resp)
+    print(resp.inserted_ids[:5])
 
     # Close the connection to the MongoDB server
     client.close()
@@ -86,12 +106,13 @@ try:
 
 except Exception as e:
     print(str(e))
-    print('Error inserting data into MongoDB.')
+    print('Error connecting to MongoDB or inserting data.')
 
 
-file = open('data.csv', 'w')
-writer = csv.writer(file)
-headers = ['Property Title', 'Price', 'Location', 'City']
-writer.writerow(headers)
-writer.writerows(data_list)
-print('File  process complete')
+
+# file = open('data.csv', 'w')
+# writer = csv.writer(file)
+# headers = ['Property Title', 'Price', 'Location', 'City']
+# writer.writerow(headers)
+# writer.writerows(data_list)
+# print('File  process complete')
