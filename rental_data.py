@@ -35,7 +35,7 @@ NUM_TO_CITY_MAPPING = {
 try:
     for num in range(1, 6):
         try:
-            for i in range(1, 3):
+            for i in range(1, 20):
                 try:
                     url = "https://www.zameen.com/Rentals_Houses_Property/{}-{}-{}.html".format(NUM_TO_CITY_MAPPING.get(num), num, i)
                     print(url)
