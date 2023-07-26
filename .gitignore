@@ -4,3 +4,4 @@ geckodriver.log
 .DS_Store
 abc.py
 test.py
+.env

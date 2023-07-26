@@ -1,6 +1,26 @@
-import requests
+import requests,os
 from bs4 import BeautifulSoup
 import pandas as pd
+from pymongo import MongoClient
+
+# Function to read the .env file and set the environment variables
+def load_env():
+    env_file = os.path.join(os.path.dirname(__file__), '.env')
+    if os.path.exists(env_file):
+        with open(env_file) as f:
+            for line in f:
+                key, value = line.strip().split('=', 1)
+                os.environ[key] = value
+
+# Load environmental variable from .env file 
+load_env()
+
+# Fetch the environment variables
+mongo_host = os.environ.get('MONGO_HOST')
+mongo_port = int(os.environ.get('MONGO_PORT'))
+mongo_db_name = os.environ.get('MONGO_DB_NAME')
+mongo_collection_name = os.environ.get('Mongo_Rental_collection')
+
 
 data_list = []
 
@@ -66,10 +86,37 @@ except Exception as e:
 print("Total records scraped: ", len(data_list))
 print("Sample Data list: ", data_list[:3])
 
+
+try:
+    # Step 1: Establish a connection to the MongoDB server running on localhost
+    client = MongoClient(mongo_host, mongo_port)
+
+    # Step 2: Choose a database and collection to store the data
+    db = client[mongo_db_name]  
+    collection = db[mongo_collection_name]
+
+
+    # Step 3: Insert data into MongoDB collection
+    resp = collection.insert_many(data_list)
+    # resp = collection.insert(data_list)
+   
+    print(resp.inserted_ids[:5])
+
+    # Close the connection to the MongoDB server
+    client.close()
+
+    print("Data inserted into MongoDB successfully!")
+
+except Exception as e:
+    print(str(e))
+    print('Error connecting to MongoDB or inserting data.')
+
+
+
 # Convert data_list to a DataFrame
-df = pd.DataFrame(data_list)
+# df = pd.DataFrame(data_list)
 
 # Save DataFrame to CSV file
-df.to_csv('rental_plots_data.csv', index=False)
+# df.to_csv('rental_plots_data.csv', index=False)
 
-print('File process complete.')
+# print('File process complete.')
