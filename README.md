@@ -1,5 +1,5 @@
 # Zameen.com-Data-Scrapper
-# Data Scraping and MongoDB Data Storage
+## Data Scraping and MongoDB Data Storage
 
 This repository contains a Python script for data scraping from a specific website and saving the scraped data into a MongoDB database. The script leverages the BeautifulSoup library for web scraping and pymongo library for interacting with the MongoDB database.
 
