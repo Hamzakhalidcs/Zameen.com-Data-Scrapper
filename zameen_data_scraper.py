@@ -109,10 +109,10 @@ except Exception as e:
     print('Error connecting to MongoDB or inserting data.')
 
 
-
-# file = open('data.csv', 'w')
-# writer = csv.writer(file)
-# headers = ['Property Title', 'Price', 'Location', 'City']
-# writer.writerow(headers)
-# writer.writerows(data_list)
-# print('File  process complete')
+# To write the Data in csv 
+file = open('data.csv', 'w')
+writer = csv.writer(file)
+headers = ['Property Title', 'Price', 'Location', 'City']
+writer.writerow(headers)
+writer.writerows(data_list)
+print('File  process complete')

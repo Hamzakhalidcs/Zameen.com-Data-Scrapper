@@ -114,9 +114,9 @@ except Exception as e:
 
 
 # Convert data_list to a DataFrame
-# df = pd.DataFrame(data_list)
+df = pd.DataFrame(data_list)
 
 # Save DataFrame to CSV file
-# df.to_csv('rental_plots_data.csv', index=False)
+df.to_csv('rental_plots_data.csv', index=False)
 
-# print('File process complete.')
+print('File process complete.')
