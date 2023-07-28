@@ -1,6 +1,7 @@
 # Zameen.com-Data-Scrapper
 ## Data Scraping and MongoDB Data Storage
 
+This script is designed to scrape data from a website that provides rental and residential property listings based on different locations available on the site. The script extracts information about rental properties and residential properties separately, based on their respective locations. It gathers data from the website's listings and organizes it into a structured format for further analysis and use.
 This repository contains a Python script for data scraping from a specific website and saving the scraped data into a MongoDB database. The script leverages the BeautifulSoup library for web scraping and pymongo library for interacting with the MongoDB database.
 
 ## Prerequisites
