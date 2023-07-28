@@ -22,7 +22,7 @@ Before running the script, make sure you have the following prerequisites instal
 
 1. Update the `url` variable in the script to the website from which you want to scrape data.
 2. Customize the web scraping logic in the script according to the website's structure and data requirements.
-3. Run the script using `python data_scraping.py`. The script will scrape the data and save it into the MongoDB database.
+3. Run the script using `python zameen_data_scraper.py`, or `python rental_data.py`. The script will scrape the data and save it into the MongoDB database.
 
 ## MongoDB Configuration
 
