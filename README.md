@@ -36,12 +36,6 @@ The scraped data will be stored in a specific collection within the MongoDB data
 
 Consider implementing data cleaning and validation steps before saving the data to ensure data integrity and consistency.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE.md).
-
-## Contributing
-
 Pull requests and contributions are welcome! Feel free to raise any issues or suggest improvements.
 
 ## Disclaimer
